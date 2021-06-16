@@ -1,8 +1,8 @@
-#ONLINE-BOOK-SHOP
+#BMC Pustakalaya
 
-## THIS IS AN E-PORTAL FOR ENGINEERING STUDENTS
+## THIS IS AN E-PORTAL FOR computer STUDENTS
 
-An integrated platform made for engineering student, where students can sell their old semester engineering books and also can place order for new books. There is also a interesting feature called rent a book.
+An integrated platform made for computer student, where students can sell their old semester computer books and also can place order for new books. There is also a interesting feature called rent a book.
 Extended URL: http://engineeringbooks.netau.net/
 
 ## FEATURES
@@ -21,5 +21,4 @@ Extended URL: http://engineeringbooks.netau.net/
 -FIND dbmsproject.sql FROM Database FOLDER IN MAIN DIRECTORT AND IMPORT IT IN YOUR DATABASE.
 -ALL SET NOW OPEN THE LOCALHOST IN URL AND SEE THE PROJECT.
 
-#CREATED BY ABHISHEK DUDHAL
-#IF YOU HAVE ANY QUERY MAIL ME AT abhishekdudhal@gmail.com
+
