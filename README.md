@@ -3,7 +3,7 @@
 ## THIS IS AN E-PORTAL FOR computer STUDENTS
 
 An integrated platform made for computer student, where students can sell their old semester computer books and also can place order for new books. There is also a interesting feature called rent a book.
-Extended URL: http://engineeringbooks.netau.net/
+
 
 ## FEATURES
 -LOGIN AND SIGN UP WITH ENCRYPTED PASSWORD(ALSO CAN RESET PASSWORD)
