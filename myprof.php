@@ -54,14 +54,7 @@ background-attachment:fixed;
     opacity: 0.7;
     filter: alpha(opacity=50); 
 	}
-	.ascroll{
-		max-height:605px;
-		overflow-y:scroll;
-	}
-	.bscroll{
-		max-height:600px;
-		overflow-y:scroll;
-	}
+	
 </style>
     </head>
     <body>
@@ -83,7 +76,7 @@ include('scripts.php');
 			<li class="list-group-item"><a  href="myprof.php?itemno=1">MyCart</a></li>
 			<li class="list-group-item"><a href="myprof.php?itemno=2">RentBookStatus</a></li>
 			<li class="list-group-item"><a  href="myprof.php?itemno=3">Delete Add</a></li>
-			<li class="list-group-item"><a  href="myprof.php?itemno=4">change Password</a></li>
+			<li class="list-group-item"><a  href="changepwd.php">change Password</a></li>
 			</ul>	
 		</div>
 	 <div class="col-sm-10">
@@ -95,10 +88,10 @@ include('scripts.php');
 	session_start();
 $id=$_SESSION['eid'];
 $itemno=$_REQUEST['itemno'];
- require "connect.php";
+ require "config.php";
 
  $sql="select * from mycart where user_name='$id'";
-    $row=$conn->query($sql);
+    $row=$connection->query($sql);
 	if($itemno==1)
 	{
 	echo"<h1 align='center'><strong>MYCART</strong></h1>";
@@ -108,14 +101,14 @@ $itemno=$_REQUEST['itemno'];
 	
 		
 	$sql="select * from mycart where user_name='$id'";
-    $row = $conn->query($sql);
+    $row = $connection->query($sql);
    echo "<table align='center'><tr> <th>BOOKNAME</th><th>Author</th><th>Price</th><th>Discount</th><th></th><th></th></tr>";
         while($arr = $row->fetch_assoc()) 
         {
                $bi=$arr['BookId'];
                            $cartid=$arr['cartid'];
 			   $sel="select * from nbook where BookID='$bi'";
-			   $rowb = $conn->query($sel);
+			   $rowb = $connection->query($sel);
 			   if($arb = $rowb->fetch_assoc())
                {
 				 $bn=$arb['BOOKNAME'];
@@ -139,13 +132,13 @@ else
 	{
  //order code
  $sql="select * from orders where user_name='$id'";
-    $row=$conn->query($sql);
+    $row=$connection->query($sql);
 	echo"<h2 align='center'><strong>ORDER STATUS</strong></h2>";
 	if($row->fetch_assoc()>0)
 	{
 		
 	$sql="select * from orders where user_name='$id'";
-    $row = $conn->query($sql);
+    $row = $connection->query($sql);
     echo "<table align='center'><tr> <th>ORDERNO</th><th>BOOKNAME</th><th>Amount Paid</th><th>DiliveryAddress</th><th>Courier</th><th>orderstatus</th><th></th></tr>";
         while($arr = $row->fetch_assoc()) 
         {
@@ -155,7 +148,7 @@ else
 			   $ci=$arr['courire_id'];
 			   $os=$arr['OrderStatus'];
 			   $sel="select * from nbook where BookID='$bi'";
-			   $rowb = $conn->query($sel);
+			   $rowb = $connection->query($sel);
 			   if($arb = $rowb->fetch_assoc())
                {
 				 $bn=$arb['BOOKNAME'];
@@ -164,12 +157,12 @@ else
 				 $ap=$ammount-($ammount*$Dis)/100;
 			   }	
                $scl="select * from courier where courire_id='$ci'";
-			   $rowc = $conn->query($scl);
+			   $rowc = $connection->query($scl);
 			   if($arc = $rowc->fetch_assoc())
                {
 				 $cnb=$arc['courier_name'];
 			   }	
-             $rowc = $conn->query($scl);	
+             $rowc = $connection->query($scl);	
               			 
        echo "<tr><td>" .$on."</td><td>" . $bn."</td><td>" .$ap."</td><td>".$ad."</td><td>".$cnb."</td><td>".$os."</td> <td>.<a href='cancel.php?itemno=$on'><button type='button' class='btn btn-primary'>CANCEL</button>
 	   </a>.</td></tr>";
@@ -187,7 +180,7 @@ else
 	{	//rent code
 echo"<h2 align='center'><strong>BOOK RENT STATUS</strong></h2>";
 		  $srl="select * from users where user_name='$id'";
-           $rrow = $conn->query($srl);
+           $rrow = $connection->query($srl);
 		   if($rar = $rrow->fetch_assoc())
                {
 				 $us=$rar['servicea'];
@@ -196,12 +189,12 @@ echo"<h2 align='center'><strong>BOOK RENT STATUS</strong></h2>";
 		{
 			
 			$sql="select * from booksonrent where user_name='$id'";
-    $row = $conn->query($sql);
+    $row = $connection->query($sql);
 	echo"<h2 align='center'><strong>BOOK RENT STATUS</strong></h2>";
 	if($row->fetch_assoc()>0)
 	{
 		$spl="select * from booksonrent where user_name='$id'";
-    $rw = $conn->query($spl);
+    $rw = $connection->query($spl);
 		
     echo "<table align='center'><tr> <th>ORDERNO</th><th>BOOKNAME</th><th>Rent</th><th>DAys Issued</th><th>Ammount</th><th>Status</th></tr>";
         while($arr = $rw->fetch_assoc()) 
@@ -213,7 +206,7 @@ echo"<h2 align='center'><strong>BOOK RENT STATUS</strong></h2>";
 			   $rent=$arr['rent'];
 			   $osr=$arr['Status'];
 			   $sel="select * from rbook where ID='$bid'";
-			   $rowb = $conn->query($sel);
+			   $rowb = $connection->query($sel);
 			   if($arb = $rowb->fetch_assoc())
                {
 				 $bnr=$arb['BOOKNAME'];
@@ -245,7 +238,7 @@ else
 	if($itemno==3)
 	{
  $sql="select * from obook where SELLER='$id'";
-    $row=$conn->query($sql);
+    $row=$connection->query($sql);
 	
 	echo"<h1 align='center'><strong>MY POSTS</strong></h1>";
 	if($row->fetch_assoc()>0)
@@ -254,7 +247,7 @@ else
 	
 		
 	$sql="select * from obook where SELLER='$id'";
-    $row = $conn->query($sql);
+    $row = $connection->query($sql);
    echo "<table align='center'><tr> <th>BOOKNAME</th><th>Author</th><th>Price</th><th></th></tr>";
         while($arb = $row->fetch_assoc()) 
         {

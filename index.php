@@ -155,7 +155,7 @@ include('scripts.php');
             if($stk!=0)
             {   
             echo"<br><br><a href='loginshop.php?itemno=$i'><button type='button' class='btn btn-success'>Shop Now</button></a>
-            <a href='logincart.php?itemno=$i' onclick='return checkcart()'><button type='button' class='btn btn-primary'>Add to Cart</button></a>";
+            <a href='logincart.php?itemno=$i'><button type='button' class='btn btn-primary'>Add to Cart</button></a>";
             }
             else
             echo"<br><br><button type='button' class='btn btn-danger'>out of stock</button>";
@@ -212,9 +212,7 @@ include('scripts.php');
      
    </body>
    <script>
-  function checkcart(){
-    return alert("Cart Added,Thank you!!!");
-  }
+
 
     </script>
 </html>
