@@ -117,6 +117,7 @@ header("location:index.php");
 <br/>  
 <br/>
 <div>
+<link rel="stylesheet" href="css/style3.css">
 <div><br/><center><h2><font face="Lucida Handwriting" size="+2" color="white">Welcome 
 	<?php
 	$sql=mysqli_query($connection,"select * from users where user_name='$id'");
@@ -158,105 +159,99 @@ header("location:index.php");
 			   $k=$p-$p*$d/100;
 		}   
 	?>
-    <div class="main-content">
-
-
-        <form method="post" name="f1" onSubmit="return vali()" class="form-basic" action="#">
-
-            <div class="form-title-row">
-                <h3>Order Form</h3>
-            </div>
-
-            <div class="form-row">
-                <label>
-                    <span>User Id:</span>
-                    <input name="uid" type="text" id="uid" onChange="return fnam()" readonly="readonly" value="<?php echo $id;?>">
-                </label>
-            </div>
-
-
-			<div class="form-row">
-                <label>
-                    <span>BookName:</span>
-					<input name="bn" type="text" id="bn" onChange="return fnam()" readonly="readonly" value="<?php echo $b;?>">
-					</label>
-            </div>
-			
-			 <div class="form-row">
-                <label>
-                    <span>Author:</span>
-                    <input name="au" type="text" id="au" onChange="return fnam()" readonly="readonly" value="<?php echo $a;?>">
-                </label>
-            </div>
-			
-			<div class="form-row">
-                <label>
-                    <span>Publisher:</span>
-                     <input name="pn" type="text" id="pn" onChange="return fnam()" readonly="readonly" value="<?php echo $pc;?>">
-                </label>
-            </div>
-			
-             <div class="form-row">
-                <label>
-                    <span>Price:</span>
-                    <input name="pr" type="text" id="pr" onChange="return lnam()" readonly="readonly" value="<?php echo $p;?>Rs">
-                </label>
-            </div>
-			
-			<div class="form-row">
-                <label>
-                    <span>Discount:</span>
-                    <input name="ds" type="text" id="ds" onChange="return lnam()" readonly="readonly" value="<?php echo $d;?>%">
-                </label>
-            </div>
-			
-			<div class="form-row">
-                <label>
-                    <span>Amount to Pay:</span>
-                   <input name="ap" type="text" id="ap" onChange="return lnam()" readonly="readonly" value="<?php echo $k;?>Rs">
-                </label>
-            </div>
-			
-			<div class="form-row">
-                <label>
-                    <span>Mobile no:</span>
-                    <input name="mn" type="text" id="mn" required="required" onChange="return phone()">
-                </label>
-            </div>
-			
-            <div class="form-row">
-                <label>
-                    <span>Address</span>
-                    <textarea name="ad" id="ad"  required="required" value="return add()"></textarea>
-                </label>
-            </div>
-
-            <div class="form-row">
-               <label>
-                <span>Payment Method</span>
-                <select id="ban" name="ban">
-                    <option value="COD">Cash on delivery</option>
-                    <option value="saab">Pytm wallet</option>
-                </select>
-                <label>
-            </div>
-
-        <div class="form-row">
-                <label>
-                    <span>City</span>
-                    <select name="c" id="c">
-                        <option value="butwal">BUTWAL</option>
-                        <option value="Ktm">KATHMANDU</option> 
-                        <option value="chtwn">CHITWAN</option> 
-                        <option value="pkr">POKHARA</option> 
-                    </select>
-                </label>
-            </div>
-            <div class="form-row">
-                <button name="send" type="submit" id="send" value="Send">Submit Form</button>
-            </div>
-
-        </form>
+   
+<div class="w3ls-main">
+<div class="w3ls-form">
+<form action="#" method="post" name="f1" onSubmit="return vali()">
+<ul class="fields1">
+	<h2>get order to pay instantly</h2> 
+	<li>	
+		<label class="w3ls-opt">User Id</label>
+		<div class="w3ls-name">	
+			<input type="text" name="uid" id="uid" onchange="return fnam()" readonly="readonly" value="<?php echo $id;?>" required=" "/>
+		</div>
+</div>
+	</li>
+	<li>
+		<label class="w3ls-opt">BookName</label>
+		<div class="w3ls-name">
+		<input type="text" name="bn" id="bn" onchange="return fnam()" readonly="readonly" value="<?php echo $b;?>" required=" "/>
+		</div>
+	</li>
+	<li>
+		<label class="w3ls-opt">Author</label>	
+		<span class="w3ls-text w3ls-name">
+        <input type="text" name="au" id="au" onchange="return fnam()" readonly="readonly" value="<?php echo $a;?>" required=" "/>
+		</span>
+	</li>
+    <li>
+		<label class="w3ls-opt">Publisher</label>	
+		<span class="w3ls-text w3ls-name">
+        <input type="text" name="pn" id="pn" onchange="return fnam()" readonly="readonly" value="<?php echo $pc;?>" required=" "/>
+		</span>
+	</li>	
+	<li>
+		<label class="w3ls-opt">Price</label>	
+		<span class="w3ls-text w3ls-name">
+        <input type="text" name="pr" id="pr" onchange="return lnam()" readonly="readonly" value="<?php echo $p;?>" required=" "/>
+		</span>
+	</li>
+    <li>
+		<label class="w3ls-opt">Discount</label>	
+		<span class="w3ls-text w3ls-name">
+        <input type="text" name="ds" id="ds" onchange="return lnam()" readonly="readonly" value="<?php echo $d;?>" required=" "/>
+		</span>
+	</li>	
+    <li>
+		<label class="w3ls-opt">Amount to Pay</label>	
+		<span class="w3ls-text w3ls-name">
+        <input type="text" name="ap" id="ap" onchange="return lnam()" readonly="readonly" value="<?php echo $k;?>" required=" "/>
+		</span>
+	</li>	
+    <li>
+		<label class="w3ls-opt">Mobile No:</label>	
+		<span class="w3ls-text w3ls-name">
+        <input type="text" name="mn" id="mn" onchange="return phone()" required=" "/>
+		</span>
+	</li>
+    <li>
+		<label class="w3ls-opt">Address:</label>	
+		<span class="w3ls-text w3ls-name">
+        <input type="text" name="ad" id="ad" onchange="return add()" required=" "/>
+		</span>
+	</li>	
+</ul>
+<ul class="fields2">
+	<li>	
+		<div class="mail">
+			<label class="w3ls-opt">Payment Method</label>
+			<span class="w3ls-text w3ls-name">
+				<select id="ban" name="ban">
+					<option value="COD">Cash On Delivery</option>
+					<option value="saab">Paytym wallet</option>
+				</select>
+			</span>
+		</div>
+	</li>
+	<li>
+	<div class="mail">
+			<label class="w3ls-opt">City</label>
+			<span class="w3ls-text w3ls-name">
+				<select id="c" name="c">
+					<option value="butwal">Butwal</option>
+					<option value="ktm">Kathmandu</option>
+					<option value="chtwn">Chitwan</option>
+				</select>
+			</span>
+		</div>
+	</li>
+	
+</ul>
+<div class="clear"></div>
+	<div class="w3ls-btn">
+    <button class="btn btn-primary" name="send" type="submit" id="send" value="Send">Submit Form</button>
+	</div>
+</form>
 
     </div>
 <br/>

@@ -89,7 +89,7 @@ header("location:index.php");
     $rowb = $conn->query($scl);
 	      while($arrb = $rowb->fetch_assoc()) 
 		  {
-			  $name=$arrb['Name'];
+			  $name=$arrb['user_name'];
 			  $mob=$arrb['Mobile'];
 			  $emailid=$arrb['user_email'];
 		  }
@@ -114,6 +114,11 @@ header("location:index.php");
 		  
            </form>";
 		   
+
+           
+
+      
+
 
 error_reporting(1);
 if($itemno=="")
