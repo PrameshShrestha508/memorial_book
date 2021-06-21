@@ -106,9 +106,10 @@ label.w3ls-opt {
 	font-family: 'Yeseva One', cursive;
 }
 label.w3ls-opt {
-    width: 30%;
+    width: 31%;
+	
     display: inline-block;
-	float: left;
+	
 }
 span.w3ls-star {
     font-size: 28px;

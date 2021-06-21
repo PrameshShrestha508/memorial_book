@@ -7,50 +7,60 @@ include('connect.php');
 	   <br/>
 	   <br/>
 	   <br/>
-	   <br/>
-
-	   <div class="table-responsive mt-5">
-    <?php
+	   <br/>  
+ <link rel="stylesheet" href="css/style_feedback.css">
+<section class="section-medium section-arrow--bottom-center section-arrow-primary-color bg-primary">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-white text-center">
+                <h2 class="section-title "> What Others Say About Us</h2>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section-primary t-bordered">
+    <div class="container">
+        <div class="row testimonial-three testimonial-three--col-three">
+        <?php
                 $query = "SELECT * FROM feedback";
                 $query_run = mysqli_query($connection, $query);
-            ?>
-      <table class="table table-bordered text-center" style="width:50%">
-        <thead>
-          <tr>
-            <th> S.N </th>
-            <th>UserName </th>
-            <th>Comment</th>
-          </tr>
-        </thead>
-        <tbody>
-     
-                    <?php
                         if(mysqli_num_rows($query_run) > 0)        
                         {
                             while($row = mysqli_fetch_assoc($query_run))
                             {
-                        ?>
-                            <tr>
-                                <td><?php  echo $row['srno']; ?></td>
-                                <td><?php  echo $row['user_name']; ?></td>
-                                <td><?php  echo $row['comment']; ?></td>
-                            </tr>
-                        <?php
-                            } 
-                        }
-                        else {
+                    ?>  
+            <div class="col-md-4 testimonial-three-col">
+                <div class="testimonial-inner">
+                    <div class="testimonial-image" itemprop="image">
+                        <img width="180" height="180" src="<?php echo 'images/feedback/'.$row['IMAGE']; ?>">
+                    </div>
+                    <div class="testimonial-content">
+                        <p>
+                        <?php echo $row['comment']; ?>
+                        </p>
+                    </div>
+                    <div class="testimonial-meta">
+                        <strong class="testimonial-name" itemprop="name"><?php echo $row['user_name']; ?></strong>
+                        <span class="testimonial-job-title" itemprop="jobTitle"><?php echo $row['faculty']; ?></span> 
+                    </div>
+                </div>
+            </div>
+            <?php
+                 } 
+               }
+                   else {
                             echo "No Record Found";
-                        }
-                        ?>
-        
-        </tbody>
-      </table>
-
+                  }
+        ?>
+          
+            
+        </div>
     </div>
-  </div>
-</div>
+</section>  
+         
+   
    <div class="cleaner"></div>
-</div><br/><br/><br/><br/><br/><br/><br/><br/>
+</div>
 <div id="Bottom" align='center'>
 <br><br><a href='fsubmit.php'><button type='button' class='btn btn-primary'>SUBMIT YOUR FEEDBACK</button></a>
 </div>

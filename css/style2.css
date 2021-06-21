@@ -350,10 +350,10 @@ a.readmore_bt {
    width: 100%;
    left: 0;
    top: 0;
-   background-color: #111;
+   background-color: rgb(7, 0, 0);
 }
 
-.home_page .header {
+.home_page .header {    
    background: rgba(0,0,0,0.4);
 }
 

@@ -13,16 +13,16 @@ if(isset($_REQUEST['send']))
   $b=$_REQUEST['name'];
 
  $f=$_REQUEST['comments'];
-	 if( mysql_query("INSERT INTO feedback (user_name,comment)
+	 if(mysqli_query($connection,"INSERT INTO feedback (user_name,comment)
 		VALUES ('$b' ,'$f')"))
 		{
-			 $sql=mysql_query("select * from users where user_name='$id'");
+			 $sql=mysqli_query($connection,"select * from users where user_name='$id'");
 	if($sql==false)
 	{
-		die(mysql_error());
+		die(mysqli_error());
 	}
    
-	  while($mat = mysql_fetch_array($sql)) 
+	  while($mat = mysqli_fetch_array($sql)) 
         {
                $umail=$mat['user_mail'];
 			   
@@ -33,7 +33,7 @@ if(isset($_REQUEST['send']))
 		}
 		else
 		{
-			die(mysql_error());
+			die(mysqli_error());
 		}
 }
 // if(isset($_REQUEST['log'])=='out')
