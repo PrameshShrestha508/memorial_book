@@ -1,5 +1,19 @@
 
-<h3 class="text-center">Select Branch Wise</h3>
+            
+            <style>
+            .text-center{
+               background-color:orange;
+               padding:10px;
+               color:white;
+            }
+            .list-group-item:hover{
+               background-color:orange;
+               color:white;
+            }
+          
+            </style>
+            
+            <h3 class="text-center">Select Branch Wise</h3>
             <ul class="list-group text-center">
                <li class="list-group-item "><a  href="ncivil.php">Civil</a></li>
                <li class="list-group-item"><a  href="nextc.php">ExTC</a></li>

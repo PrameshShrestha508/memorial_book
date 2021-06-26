@@ -106,7 +106,7 @@ $itemno=$_REQUEST['itemno'];
         while($arr = $row->fetch_assoc()) 
         {
                $bi=$arr['BookId'];
-                           $cartid=$arr['cartid'];
+                $cartid=$arr['cartid'];
 			   $sel="select * from nbook where BookID='$bi'";
 			   $rowb = $connection->query($sel);
 			   if($arb = $rowb->fetch_assoc())

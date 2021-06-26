@@ -33,14 +33,16 @@ if(isset($_REQUEST['send']))
 
     
         echo "images uploaded:";
-    }else{
+    }
+    else
+    {
         echo "Sorry only jpg,jpeg,png and gif allowed:";
     }
     
+    }}
     
-    
-    }
-    }
+
+ 
 
   $name=$_REQUEST['name'];
   $faculty=$_REQUEST['faculty'];

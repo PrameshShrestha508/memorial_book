@@ -2,6 +2,9 @@
 include('navbar.php');
 include('scripts.php');
 ?>
+<style>
+
+</style>
       <section class="slider_section">
          <div id="myCarousel" class="carousel slide banner-main" data-ride="carousel">
             <div class="carousel-inner">
