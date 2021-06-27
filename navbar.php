@@ -2,6 +2,8 @@
 error_reporting(1);
 
 ?>
+
+</style>
    <!-- body -->
    <body class="main-layout home_page">
       <!-- loader  -->

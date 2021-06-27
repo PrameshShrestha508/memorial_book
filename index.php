@@ -2,9 +2,7 @@
 include('navbar.php');
 include('scripts.php');
 ?>
-<style>
-
-</style>
+   <link rel="stylesheet" href="style2.css">
       <section class="slider_section">
          <div id="myCarousel" class="carousel slide banner-main" data-ride="carousel">
             <div class="carousel-inner">
@@ -126,52 +124,52 @@ include('scripts.php');
             <br><br>
                <?php include('list.php') ?>
          </div>
-         <div class="col-md-9">
-         <br/>
-	 <h1 align='center'><font color="Black"style="century">MOST SOLD BOOKS</font></h1>
-	 <hr>
-    <?php
-            require "connect.php";
-         $sql="select * from nbook order by soldq desc limit 21";
-         $row = $conn->query($sql);
-         $n=0;
-         echo"<form method='post'><table border='0' align='center'><tr>";
-            while($arr = $row->fetch_assoc()) 
-            {
-               if($n<12)
-               {
-                     $i=$arr['BookId'];
+   <div class="col-md-9">
+               <br/>
+         <h1 class="center">MOST SOLD BOOKS</h1>
+         <hr>
+         <div class="latest-books-wrapper">
+                     <div class="row latest-books-items-active">
+                            <?php
+                                include('config.php');
+                                $query = "SELECT * FROM  nbook order by soldq desc limit 9 OFFSET 9";
+                                $query_run = mysqli_query($connection, $query);
+                                if(mysqli_num_rows($query_run) > 0)        
+                                {
+                                    while($row = mysqli_fetch_assoc($query_run))
+                                    {
+                                       $i=$row['BookId'];
                   
-                     $stk=$arr['Stock'];
-            if($n%3==0)
-            {
-            echo "<tr>";
-            }
-            echo "
-            <td height='280' width='240' align='center'><img src=".$arr['BookImage']." width='200' height='250'/><br/><br/>
-            <b>BOOKNAME:</b>".$arr['BOOKNAME']."
-            <br><b>Author:</b>".$arr['Author']."
-            <br><b>Publication:</b>&nbsp;".$arr['PublicatonHouse']."
-            <br><b>Discount:</b>".$arr['Discount']."%
-            <br><b>Price:</b>".$arr['Price']."RS ";
-            
-            if($stk!=0)
-            {   
-            echo"<br><br><a href='loginshop.php?itemno=$i'><button type='button' class='btn btn-success'>Shop Now</button></a>
-            <a href='logincart.php?itemno=$i'><button type='button' class='btn btn-primary'>Add to Cart</button></a>";
-            }
-            else
-            echo"<br><br><button type='button' class='btn btn-danger'>out of stock</button>";
-            echo"</td>";
-            $n++;
-            }
-            }
-               echo "</tr></table>
-               </form>";
-
-               error_reporting(1);
-
-      ?>
+                                     
+                                       ?>
+                            <div class="col-lg-4 col-md-6 grid-item grid-sizer cat-two">
+                                <div class="latest-books-item mb-60">
+                                    <div class="latest-books-thumb mb-25">
+                                    <img src="<?php echo $row['BookImage'];?>"  alt="">
+                                    </div>
+                                    <div class="latest-book-content">
+                                        <p>BOOKNAME : <span><?php echo $row['BOOKNAME'];?></span></p>
+                                        <p>Author : <span><?php echo $row['Author'];?></span></p>
+                                        <p>PublicatonHouse : <span><?php echo $row['PublicatonHouse'];?></span></p>
+                                        <p>Discount : <span><?php echo $row['Discount'];?>%</span></p>
+                                        <p>Price : <span>RS.<?php echo $row['Price'];?></span></p>
+                                        <div class="latest-book-meta">
+                                        <div class="inv-content-top">
+                                        <?php
+                                       
+                                             echo"<br><br><a href='loginshop.php?itemno=$i'><button type='button' class='btn btn-success'>Shop Now</button></a>
+                                             <a href='logincart.php?itemno=$i'><button type='button' class='btn btn-primary'>Add to Cart</button></a>";
+   
+                                             ?>
+                                       </div><br><br>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <?php }} ?>
+                        </div>
+         </div>
+   </div>
    <div class="cleaner"></div>
          </div>
       </div>

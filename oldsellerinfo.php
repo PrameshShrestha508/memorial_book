@@ -101,9 +101,9 @@ header("location:index.php");
         <td height='280' width='240' align='center'><img src='data:image/jpg;base64,".base64_encode( $arr['IMAGE'] )."'height='250' width='200'><br/>
         <b>BOOKNAME:</b>".$arr['BOOKNAME']."
        <br><b>Author:</b>".$arr['AUTHOR']."
-       <br><b>Publication:</b>&nbsp;".$arr['PUBLICATION']."
+       <br><b>Publication:</b>&nbsp;".$arr['PUBLISHER']."
 	   <br><b>Price:</b>".$arr['PRICE']."RS
-        <br><b>Name:</b>&nbsp;".$name."
+        <br><b>Name:</b>&nbsp;".$uid."
 		 <br><b>mobileno:</b>&nbsp;".$mob."
 		  <br><b>emailid:</b>&nbsp;".$emailid."
 		

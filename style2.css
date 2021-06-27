@@ -1,0 +1,25 @@
+.latest-book-content p{
+    font-size:16px;
+    font-weight:bold;
+    
+}
+.latest-book-content p span{
+font-size:14px;
+font-style:italic;
+/* color:gray; */
+}
+
+.latest-books-thumb img{
+    width:60%;
+    height:300px;
+   
+}
+.latest-books-thumb img:hover{
+    background-color:gray;
+    border:4px solid LightGray;
+}
+.center{
+    color:red;
+    text-align:center;
+    font-weight: 600;
+}

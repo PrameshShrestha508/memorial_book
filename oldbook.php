@@ -1,6 +1,7 @@
 <?php include('navbar.php');
 include('scripts.php');
 ?>
+<link rel="stylesheet" href="style2.css">
 <div class="container-fluid">
     <div class="Library">
          <!-- <div class="container"> -->
@@ -22,7 +23,7 @@ include('scripts.php');
                 </form>
             </div>
         </div>
-      <div class="row">
+        <div class="row">
          <div class="col-md-3">
             <!-- <form class="form-inline my-2 my-lg-0" action='search.php' role="search">
                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -31,38 +32,53 @@ include('scripts.php');
             <br><br>
                <?php include('list.php') ?>
          </div>
-         <div class="col-md-9">
-         <br/>
-	 <!-- <h1 align='center'><font color="Black"style="century">OLD BOOKS</font></h1> -->
-	 <hr>
-     <?php
-        require "connect.php";
-            $sql="select * from obook";
-            $row = $conn->query($sql);
-            $n=0;
-            echo"<form method='post'><table border='0' align='center'><tr>";
-                while($arr = $row->fetch_assoc()) 
-                {
-                    $i=$arr['BOOKID'];
-                if($n%3==0)
-                {
-                echo "<tr>";
-                }
-            echo "
-                <td height='280' width='240' align='center'><img src='data:image/jpeg;base64,".base64_encode( $arr['IMAGE'] )."'height='250' width='200'><br/>
-                <b>BOOKNAME:</b>".$arr['BOOKNAME']."
-            <br><b>Author:</b>".$arr['AUTHOR']."
-            <br><b>Publication:</b>&nbsp;".$arr['PUBLICATION']."
-            <br><b>Price:</b>".$arr['PRICE']."RS
-            <br><br><a href='oldsellerinfo.php?itemno=$i'><button type='button' class='btn btn-primary'>View</button></a>
-            </td>";
-            $n++;
-                }
-                echo "</tr></table>
-                </form>";
-
-        error_reporting(1);
-   ?>
+   <div class="col-md-9">
+               <br/>
+         <h1 class="center">SOME OLD BOOKS</h1>
+         <hr>
+         <div class="latest-books-wrapper">
+                     <div class="row latest-books-items-active">
+                            <?php
+                                include('config.php');
+                                $query = "SELECT * FROM  obook";
+                                $query_run = mysqli_query($connection, $query);
+                                if(mysqli_num_rows($query_run) > 0)        
+                                {
+                                    while($row = mysqli_fetch_assoc($query_run))
+                                    {
+                                       $i=$row['BOOKID'];
+                  
+                                      
+                                       ?>
+                            <div class="col-lg-4 col-md-6 grid-item grid-sizer cat-two">
+                                <div class="latest-books-item mb-60">
+                                    <div class="latest-books-thumb mb-25">
+                                    <?php
+                                    echo '<img src="data:image/jpeg;base64,'.base64_encode($row['IMAGE']) .' "/>';
+                                    ?>
+                                    </div>
+                                    <div class="latest-book-content">
+                                        <p>BOOKNAME : <span><?php echo $row['BOOKNAME'];?></span></p>
+                                        <p>Author : <span><?php echo $row['AUTHOR'];?></span></p>
+                                        <p>PUBLICATION : <span><?php echo $row['PUBLISHER'];?></span></p>
+                                        
+                                        <p>Price : <span>RS.<?php echo $row['PRICE'];?></span></p>
+                                        <div class="latest-book-meta">
+                                        <div class="inv-content-top">
+                                        <?php
+                                       
+                                             echo"<br><br><a href='oldsellerinfo.php?itemno=$i'><button type='button' class='btn btn-primary'>View</button></a>";
+   
+                                             ?>
+                                       </div><br><br>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <?php }} ?>
+                        </div>
+         </div>
+   </div>
             <div class="cleaner"></div>
          </div>
         <div>
